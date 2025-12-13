@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap');
+
+* {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #000 0%, #1a0000 100%);
+    min-height: 100vh;
+}
+
+.f1-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.f1-card:hover {
+    transform: translateY(-5px);
+    border-color: #e10600;
+    box-shadow: 0 10px 30px rgba(225, 6, 0, 0.3);
+}
+
+f1-red {
+    background: linear-gradient(135deg, #e10600 0%, #ff1e00 100%);
+}
+
+.weather-sunny {
+    background: linear-gradient(135deg, #FFB75E 0%, #ED8F03 100%);
+}
+
+.weather-cloudy {
+    background: linear-gradient(135deg, #757F9A 0%, #D7DDE8 100%);
+}
+
+.weather-rainy {
+    background: linear-gradient(135deg, #373b44 0%, #4286f4 100%);
+}
+
+.weather-night {
+    background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);
+}
+
+.gp-item {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.gp-item:hover {
+    background: rgba(225, 6, 0, 0.2);
+}
+
+.gp-item.active {
+    background: rgba(225, 6, 0, 0.4);
+    border-left: 4px solid #e10600;
+}
+
+.tire-indicator {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    position: relative;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.loading {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #e10600;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
