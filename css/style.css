@@ -92,3 +92,25 @@ body {
         transform: rotate(360deg);
     }
 }
+/* Largura da barra */
+#gpList::-webkit-scrollbar {
+    width: 6px;               /* Bem fininha */
+}
+
+/* O fundo por onde a barra corre (Trilho) */
+#gpList::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05); /* Quase transparente */
+    border-radius: 4px;
+}
+
+/* A parte que se move (O "dedo" da barra) */
+#gpList::-webkit-scrollbar-thumb {
+    background-color: #e10600; /* Vermelho F1 */
+    border-radius: 10px;       /* Arredondada */
+    border: 1px solid rgba(0, 0, 0, 0.3); /* Um leve contorno */
+}
+
+/* Efeito quando passa o mouse em cima da barra */
+#gpList::-webkit-scrollbar-thumb:hover {
+    background-color: #ff1e00; /* Vermelho mais brilhante */
+}
