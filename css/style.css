@@ -22,7 +22,7 @@ body {
     box-shadow: 0 10px 30px rgba(225, 6, 0, 0.3);
 }
 
-f1-red {
+.f1-red {
     background: linear-gradient(135deg, #e10600 0%, #ff1e00 100%);
 }
 

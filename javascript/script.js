@@ -3,30 +3,33 @@ const gp2026 = [
         name: "Australian GP",
         city: "Melbourne",
         country: "Australia",
-        lat: -37.8497,
-        lon: 144.968,
+        lat: -37.8136,
+        lon: 144.9631,
         date: "6-8 Mar",
         venue: "Melbourne"
     },
+
     {
         name: "Chinese GP 🏁",
         city: "Shanghai",
         country: "China",
-        lat: 31.3389,
-        lon: 121.2197,
+        lat: 31.2304,
+        lon: 121.4737,
         date: "13-15 Mar",
         venue: "Shanghai",
         sprint: true
     },
+
     {
         name: "Japanese GP",
         city: "Suzuka",
         country: "Japan",
-        lat: 34.8431,
-        lon: 136.5408,
+        lat: 34.84306,
+        lon: 136.54056,
         date: "27-29 Mar",
-        venue: "Suzuka",
+        venue: "Suzuka"
     },
+
     {
         name: "Bahrain GP",
         city: "Sakhir",
@@ -34,190 +37,211 @@ const gp2026 = [
         lat: 26.0325,
         lon: 50.5106,
         date: "10-12 Apr",
-        venue: "Sakhir",
+        venue: "Sakhir"
     },
+
     {
         name: "Saudi Arabian GP",
         city: "Jeddah",
         country: "Saudi Arabia",
-        lat: 21.6319,
-        lon: 39.1044,
+        lat: 21.3236,
+        lon: 39.1022,
         date: "17-19 Apr",
-        venue: "Jeddah",
+        venue: "Jeddah"
     },
+
     {
         name: "Miami GP 🏁",
         city: "Miami",
         country: "USA",
-        lat: 25.9581,
-        lon: -80.2389,
+        lat: 25.7617,
+        lon: -80.1918,
         date: "1-3 May",
         venue: "Miami",
-        spint: true,
+        sprint: true
     },
+
     {
         name: "Canadian GP 🏁",
         city: "Montreal",
         country: "Canada",
-        lat: 45.5,
-        lon: -73.5228,
+        lat: 45.5017,
+        lon: -73.5673,
         date: "22-24 May",
-        venue: "Montreal",
-        sprint: true,
+        venue: "Montreal", 
+        sprint: true
     },
+
     {
         name: "Monaco GP",
         city: "Monaco",
         country: "Monaco",
-        lat: 43.7347,
-        lon: 7.42056,
+        lat: 43.7375,
+        lon: 7.4167,
         date: "5-7 Jun",
-        venue: "Monaco",
+        venue: "Monaco"
     },
+
     {
-        name: "Spanish GP",
+        name: "Spanish GP", 
         city: "Barcelona",
         country: "Spain",
-        lat: 41.57,
-        lon: 2.2611,
+        lat: 41.3851,
+        lon: 2.1734,
         date: "12-14 Jun",
-        venue: "Barcelona-Catalunya",
+        venue: "Barcelona-Catalunya"
     },
+
     {
         name: "Austrian GP",
         city: "Spielberg",
         country: "Austria",
-        lat: 47.2197,
-        lon: 14.7647,
+        lat: 47.2190,
+        lon: 14.7643,
         date: "26-28 Jun",
-        venue: "Spielberg",
+        venue: "Spielberg"
     },
+
     {
         name: "British GP 🏁",
         city: "Silverstone",
         country: "UK",
-        lat: 52.0786,
-        lon: -1.0169,
+        lat: 52.0734,
+        lon: -1.0152,
         date: "3-5 Jul",
         venue: "Silverstone",
-        sprint: true,
+        sprint: true
     },
+
     {
         name: "Belgian GP",
         city: "Spa",
         country: "Belgium",
-        lat: 50.4372,
-        lon: 5.9714,
+        lat: 50.4542,
+        lon: 5.9523,
         date: "17-19 Jul",
-        venue: "Spa-Francorchamps",
+        venue: "Spa-Francorchamps"
     },
+
     {
         name: "Hungarian GP",
         city: "Budapest",
         country: "Hungary",
-        lat: 47.5789,
-        lon: 19.2486,
+        lat: 47.4719,
+        lon: 19.0503,
         date: "24-26 Jul",
-        venue: "Budapest",
+        venue: "Budapest"
     },
+
     {
         name: "Dutch GP 🏁",
         city: "Zandvoort",
-        country: "Netherlands",
-        lat: 52.3888,
-        lon: 4.5408,
+        country: "Netherlands", 
+        lat: 52.3700,
+        lon: 4.5300,
         date: "21-23 Aug",
         venue: "Zandvoort",
-        sprint: true,
+        sprint: true
     },
+
     {
-        name: "Italian GP 🏁",
+        name: "Italian GP",
         city: "Monza",
         country: "Italy",
-        lat: 45.6156,
-        lon: 9.2811,
+        lat: 45.5833,
+        lon: 9.2667,
         date: "4-6 Sep",
-        venue: "Madrid*",
+        venue: "Monza"
     },
+
     {
         name: "Azerbaijan GP",
         city: "Baku",
         country: "Azerbaijan",
-        lat: 40.3725,
-        lon: 49.8533,
+        lat: 40.3953,
+        lon: 49.8822,
         date: "24-26 Sep",
-        venue: "Baku",
+        venue: "Baku"
     },
+
     {
         name: "Singapore GP 🏁",
         city: "Singapore",
         country: "Singapore",
-        lat: 1.2914,
-        lon: 103.864,
+        lat: 1.3521,
+        lon: 103.8198,
         date: "9-11 Oct",
-        venue: "Singapore",
-        sprint: true,
+        venue: "Singapore", 
+        sprint: true
     },
+
     {
-        name: "United States GP",
+        name: "United States GP", 
         city: "Austin",
         country: "USA",
-        lat: 30.1328,
-        lon: -97.6411,
+        lat: 30.2672,
+        lon: -97.7431,
         date: "23-25 Oct",
-        venue: "Austin",
+        venue: "Austin"
     },
+
     {
         name: "Mexico City GP",
         city: "Mexico City",
         country: "Mexico",
-        lat: 19.4042,
-        lon: -99.0907,
+        lat: 19.4342,
+        lon: -99.1386,
         date: "30 Oct - 1 Nov",
-        venue: "Mexico City",
+        venue: "Mexico City"
     },
+
     {
         name: "Brazilian GP",
         city: "São Paulo",
         country: "Brazil",
-        lat: -23.7008,
-        lon: -46.6969,
+        lat: -23.5475,
+        lon: -46.6361,
         date: "6-8 Nov",
-        venue: "São Paulo",
+        venue: "Interlagos"
     },
+
     {
-        name: "Lav Vegas GP",
+        name: "Las Vegas GP",
         city: "Las Vegas",
         country: "USA",
-        lat: 36.1716,
-        lon: -155.1485,
+        lat: 36.1699, 
+        lon: -115.1398,
         date: "19-21 Nov",
-        venue: "Las Vegas",
+        venue: "Las Vegas"
     },
+
     {
         name: "Qatar GP",
         city: "Lusail",
         country: "Qatar",
-        lat: 25.49,
-        lon: 51.4542,
+        lat: 25.4667,
+        lon: 51.4833,
         date: "27-29 Nov",
-        venue: "Lusail",
+        venue: "Lusail"
     },
+
     {
         name: "Abu Dhabi GP",
         city: "Abu Dhabi",
         country: "UAE",
-        lat: 24.4672,
-        lon: 54.6031,
+        lat: 24.4667,
+        lon: 54.3500,
         date: "4-6 Dec",
-        venue: "Yas Marina",
-    },
-]
+        venue: "Yas Marina"
+    }
+];
 
 let currentGP = null;
+let searchTimeout = null;
 
 function renderGPList() {
     const gpList = document.getElementById('gpList');
+
     gpList.innerHTML = gp2026.map((gp, index) => `
         <div class="gp-item p-3 rounded-lg" onclick="selectGP(${index})">
             <div class="flex justify-between items-center">
@@ -228,7 +252,7 @@ function renderGPList() {
 
                 <div class="text-right">
                     <span class="text-xs text-red-500 font-semibold block">${gp.date}</span>
-                    ${gp.spint ? '<span class="text-xs text-yellow-400">Sprint</span>' : ''}
+                    ${gp.sprint ? '<span class="text-xs text-yellow-400">Sprint</span>' : ''}
                 </div>
             </div>
         </div>
@@ -237,6 +261,9 @@ function renderGPList() {
 
 async function selectGP(index) {
     currentGP = gp2026[index];
+    
+    document.getElementById('citySuggestions').classList.add('hidden');
+    document.getElementById('cityInput').value = '';
     document.querySelectorAll('.gp-item').forEach((item, i) => {
         item.classList.toggle('active', i === index);
     });
@@ -246,18 +273,20 @@ async function selectGP(index) {
 
 async function fetchWeather(lat, lon, gpName = null, cityName = null) {
     const container = document.getElementById('weatherContainer');
+
     container.innerHTML = '<div class="flex justify-center items-center py-20"><div class="loading"></div></div>';
 
     try {
         const response = await fetch(
-            `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weathercode,windspeed_10m,relativehumidity_2m&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto&forecast_days=4`
+            `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code,windspeed_10m,relativehumidity_2m,precipitation&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto&forecast_days=4`
         );
-        const data = await response.json();
 
+        const data = await response.json();
         displayWeather(data, gpName, cityName);
 
     } catch (error) {
-        container.innerHTML = '<div class="text-center py-20"><p class="text=red-500 text-xl">Erro ao buscar dados do tempo</p></div>';
+        console.error(error);
+        container.innerHTML = '<div class="text-center py-20"><p class="text-red-500 text-xl">Erro ao carregar previsão.</p></div>';
     }
 }
 
@@ -265,252 +294,256 @@ function getWeatherInfo(code) {
     const weatherCodes = {
         0: {
             desc: 'Céu Limpo',
-            icon: '☀️',
-            theme: 'weather-sunny',
+            icon: '☀️'
         },
+
         1: {
             desc: 'Principalmente Limpo',
-            icon: '🌤️',
-            theme: 'weather-sunny',
+            icon: '🌤️'
         },
+
         2: {
             desc: 'Parcialmente Nublado',
-            icon: '⛅',
-            theme: 'weather-cloudy',
+            icon: '⛅'
         },
+
         3: {
             desc: 'Nublado',
-            icon: '☁️',
-            theme: 'weather-cloudy',
+            icon: '☁️'
         },
+
         45: {
             desc: 'Neblina',
-            icon: '🌫️',
-            theme: 'weather-cloudy'
+            icon: '🌫️'
         },
+
         48: {
             desc: 'Neblina Gelada',
-            icon: '🌫️',
-            theme: 'weather-cloudy'
+            icon: '🌫️'
         },
+
         51: {
             desc: 'Garoa Leve',
-            icon: '🌦️',
-            theme: 'weather-rainy',
+            icon: '🌦️'
         },
+
         53: {
             desc: 'Garoa Moderada',
-            icon: '🌧️',
-            theme: 'weather-rainy',
+            icon: '🌧️'
         },
+
         55: {
             desc: 'Garoa Intensa',
-            icon: '🌧️',
-            theme: 'weather-rainy',
+            icon: '🌧️'
         },
+
         61: {
             desc: 'Chuva Leve',
-            icon: '🌧️',
-            theme: 'weather-rainy',
+            icon: '🌧️'
         },
+
         63: {
             desc: 'Chuva Moderada',
-            icon: '🌧️',
-            theme: 'weather-rainy',
+            icon: '🌧️'
         },
+
         65: {
             desc: 'Chuva Forte',
-            icon: '⛈️',
-            theme: 'weather-rainy',
+            icon: '⛈️'
         },
+
         80: {
             desc: 'Pancadas de Chuva',
-            icon: '⛈️',
-            theme: 'weather-rainy',
+            icon: '⛈️'
         },
+
         95: {
             desc: 'Tempestade',
-            icon: '⛈️',
-            theme: 'weather-rainy',
+            icon: '⛈️'
         }
     };
-    return weatherCodes[code] || { 
-        desc: 'Desconhecido',
-        icon: '🌡️',
-        theme: 'weather-cloudy',
-    };
+
+    return weatherCodes[code] || { desc: 'Variável', icon: '🌡️' };
 }
 
-function getTireRecommendation(weatherCode, temp, humidity, precipitation) {
-    if (weatherCode >= 61 || precipitation > 60) {
-        return {
-            tire: 'Pneu de Chuva (Wet)',
-            color: '#0066ff',
-            reason: 'Condições de chuva detectadas',
-            suggestion: '🌧️ Leve um guarda-chuva! Condições molhadas no circuito',
-        };
+function getTireRecommendation(weather_code, temp, precipitation_current, prob_daily) {
+    const chuva = Number(precipitation_current);
+    const code = Number(weather_code);
+    const prob = Number(prob_daily);
 
-    } else if (weatherCode >= 51 || precipitation > 30) {
-        return {
-            tire: 'Intermediário',
-            color: '#00cc00',
-            reason: 'Pista úmida ou garoa',
-            suggestion: '☔ Possível chuva. Melhor levar um casaco!'
-        };
+    if (code >= 63 || chuva > 1.0) {
+        return { tire: 'WET (Chuva)', color: '#0066ff', reason: 'Pista encharcada', suggestion: '🌧️ Muita água na pista! Risco de aquaplanagem.' };
 
-    } else if (temp > 30) {
-        return {
-            tire: 'Pneu Macio (Soft)',
-            color: '#ff0000',
-            reason: 'Temperatura alta, melhor grip',
-            suggestion: '☀️ Tempo quente! Ideal para atividades ao ar livre.'
-        };
-
-    } else if (temp > 20) {
-        return {
-            tire: 'Médio (Medium)',
-            color: '#ffff00',
-            reason: 'Temperatura moderada, equilibrado',
-            suggestion: '🌤️ Tempo agradável para uma caminhada!',
-        };
+    } else if ((code >= 51 && code <= 61) || chuva > 0.1 || (prob >= 75 && code > 1)) {
+        return { tire: 'INTERMEDIATE', color: '#00cc00', reason: 'Pista úmida ou risco alto', suggestion: '☔ Asfalto escorregadio. Cuidado nas zebras.' };
 
     } else {
-        return {
-            tire: 'Duro (Hard)',
-            color: '#ffffff',
-            reason: 'Temperatura baixa, maior durabilidade',
-            suggestion: '🧥 Está fresco! Vista algo confortável.',
-        };
+        if (temp > 35) {
+            return { tire: 'HARD (Duro)', color: '#ffffff', reason: 'Calor extremo', suggestion: '🔥 Asfalto fervendo! Economize pneus.'};
+
+        } else if (temp < 18) {
+            return { tire: 'SOFT (Macio)', color: '#ff0000', reason: 'Baixa temperatura', suggestion: '❄️ Use pneu macio para aquecer rápido.' };
+
+        } else {
+            return { tire: 'MEDIUM (Médio)', color: '#ffff00', reason: 'Condições ideais', suggestion: '🏎️ Pé embaixo! Condições perfeitas para corrida.' };
+        }
     }
 }
 
-function displayWeather(data, gpName, cityName) {
+function applyTheme(weatherCode) {
+    const body = document.body;
+    body.classList.remove('weather-sunny', 'weather-cloudy', 'weather-rainy');
+
+    if (weatherCode <= 1) {
+        body.classList.add('weather-sunny');
+
+    } else if (weatherCode <= 48) {
+        body.classList.add('weather-cloudy');
+
+    } else body.classList.add('weather-rainy');
+}
+
+async function displayWeather(data, gpName = '', cityName = '') {
     const current = data.current;
     const daily = data.daily;
-    const weatherInfo = getWeatherInfo(current.weatherCode);
-    const tireRec = getTireRecommendation(
-        current.weatherCode,
-        current.temperature_2m,
-        current.relativehumidity_2m,
-        daily.precipitation_probability_max[0]
-    );
+    const container = document.getElementById('weatherContainer');
 
-    const hour = new Date().getHours();
-    const isNight = hour < 6 || hour > 20;
-    const theme = isNight ? 'weather-night' : weatherInfo.theme;
+    const wCode = current.weather_code !== undefined ? current.weather_code : 0;
+    const probChuvaHoje = daily.precipitation_probability_max ? daily.precipitation_probability_max[0] : 0;
+    const chuvaAgora = current.precipitation !== undefined ? current.precipitation : 0;
 
-    const title = gpName ? `🏁 ${gpName}` : `📍 ${cityName}`;
+    const weatherInfo = getWeatherInfo(wCode);
+    applyTheme(wCode);
 
-    const forecastHTML = [0, 1, 2, 3].map(i => {
-        const date = new Date(daily.time[i]);
-        const dayName = i === 0 ? 'Hoje' : date.toLocaleDateString('pt-BR', { weekday: 'short' });
-        const dateStr = date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
-        const weather = getWeatherInfo(daily.weathercode[i]);
+    const tireRec = getTireRecommendation(wCode, current.temperature_2m, chuvaAgora, probChuvaHoje);
+    const displayName = gpName || cityName || (currentGP ? currentGP.city : 'Local');
+    const isGP = !!gpName; 
 
+    let forecastHTML = daily.time.map((time, i) => {
+        const date = new Date(time + 'T12:00:00'); 
+        const dayName = date.toLocaleDateString('pt-BR', { weekday: 'short' });
+        const dayNum = date.toLocaleDateString('pt-BR', { day: 'numeric', month: 'numeric' });
+        const codeDia = daily.weather_code ? daily.weather_code[i] : 0;
+        const weather = getWeatherInfo(codeDia);
+        
         return `
-            <div class="text-center p-4 bg-white bg-opacity-10 rounded-lg">
-                <p class="font-semibold mb-1">${dayName}</p>
-                <p class="text-xs text-gray-400 mb-2">${dateStr}</p>
-                <p class="text-3xl mb-2">${weather.icon}</p>
-                <p class="text-sm mb-1">${weather.desc}</p>
-                <p class="font-bold text-lg">${Math.round(daily.temperature_2m_max[i])}°C</p>
-                <p class="text-sm text-gray-400">${Math.round(daily.temperature_2m_min[i])}°C</p>
+            <div class="text-center p-4 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-10">
+                <p class="text-gray-300 font-bold mb-2 uppercase text-sm">${dayName}</p>
+                <p class="text-xs text-gray-400 mb-2">${dayNum}</p>
+                <div class="text-3xl mb-2">${weather.icon}</div>
+                <p class="text-sm font-bold">${Math.round(daily.temperature_2m_max[i])}°C</p>
+                <p class="text-xs text-blue-300 mt-1">☂️ ${daily.precipitation_probability_max[i]}%</p>
             </div>
         `;
     }).join('');
 
-    document.getElementById('weatherContainer').innerHTML = `
-        <div class="${theme} rounded-xl p-8 transition-all duration-500">
-            <h2 class="text-3xl font-black mb-6">${title}</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                <div class="text-center">
-                    <p class="text-8xl mb-4">${weatherInfo.icon}</p>
-                    <p class="text-5xl font-black mb-2">${Math.round(current.temperature_2m)}°C</p>
-                    <p class="text-xl mb-4">${weatherInfo.desc}</p>
-
-                    <div class="flex justify-center gap-4 text-sm">
-                        <span>💨 ${Math.round(current.windspeed_10m)} km/h</span>
-                        <span>💧 ${current.relativehumidity_2m}%</span>
-                    </div>
-                </div>
-
-                ${gpName ? `
-                <div class="flex flex-col justify-center items-center bg-black bg-opacity-30 rounded-xl p-6">
-                    <h3 class="text-xl font-bold mb-4 text-red-500">🏎️ RECOMENDAÇÃO DE PNEU</h3>
-
-                    <div class="tire-indicator mb-4" style="background: ${tireRec.color};"></div>
-
-                    <p class="text-2xl font-bold mb-2">${tireRec.tire}</p>
-                    <p class="text-sm text-gray-300 mb-4 text-center">${tireRec.reason}</p>
-
-                    <div class="bg-white bg-opacity-10 rounded-lg p-4 w-full">
-                        <p class="text-sm text-center">${tireRec.suggestion}</p>
-                    </div>
-                </div>
-
-                ` : `
-
-                <div class="flex items-center justify-center">
-                    <div class="bg-black bg-opacity-30 rounded-xl p-6 text-center">
-                        <p class="text-lg mb-2">💡 Dica do Dia</p>
-                        <p class="text-sm">${tireRec.suggestion}</p>
-                    </div>
-                </div>
-                `}
+    let middleCardHTML = isGP ? `
+        <div class="bg-black bg-opacity-30 rounded-xl p-6 mb-8 border border-white border-opacity-10 flex items-center gap-6">
+            <div class="h-24 w-24 rounded-full border-8 shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center justify-center bg-gray-900 shrink-0" style="border-color: ${tireRec.color}">
+                <span class="text-2xl font-black italic text-white text-center leading-none" style="font-size: 1rem;">P ZERO</span>
             </div>
 
             <div>
-                <h3 class="text-xl font-bold mb-4">📅 Próximos 4 Dias</h3>
+                <h3 class="text-xl font-bold mb-1" style="color: ${tireRec.color}">${tireRec.tire}</h3>
+                <p class="text-sm text-gray-300 mb-1">${tireRec.reason}</p>
+                <p class="text-xs text-gray-400 italic">"${tireRec.suggestion}"</p>
+            </div>
+        </div>
+    ` : `
+        <div class="bg-black bg-opacity-30 rounded-xl p-6 mb-8 border border-white border-opacity-10 flex items-center gap-6">
+            <div class="text-5xl">💡</div>
+        
+            <div>
+                <h3 class="text-xl font-bold mb-1 text-white">Dica do Dia</h3>
+                <p class="text-sm text-gray-300">${tireRec.suggestion.replace('Pista', 'Rua').replace('Asfalto', 'Chão').replace('aquaplanagem', 'poças d\'água')}</p>
+            </div>
+        </div>
+    `;
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    ${forecastHTML}
+    container.innerHTML = `
+        <div class="animate-fade-in">
+            <div class="flex justify-between items-start mb-8">
+                <div>
+                    <h2 class="text-4xl font-black italic tracking-tighter mb-1">${displayName}</h2>
+                    <p class="text-xl text-gray-200 flex items-center gap-2">${weatherInfo.desc}</p>
+                </div>
+
+                <div class="text-right">
+                    <div class="text-6xl font-black tracking-tighter">${Math.round(current.temperature_2m)}°</div>
+
+                    <div class="flex justify-end gap-4 text-sm mt-2 font-mono">
+                        <span title="Vento">💨 ${Math.round(current.windspeed_10m)} km/h</span>
+                        <span title="Umidade">💧 ${current.relativehumidity_2m}%</span>
+                        <span title="Probabilidade de Chuva Hoje" class="${probChuvaHoje > 0 ? 'text-blue-400' : 'text-gray-400'}">☂️ ${probChuvaHoje}%</span>
+                    </div>
                 </div>
             </div>
+
+            ${middleCardHTML}
+            <h3 class="font-bold mb-4 text-xl border-b border-white border-opacity-10 pb-2">PRÓXIMOS DIAS</h3>
+            <div class="grid grid-cols-4 gap-4">${forecastHTML}</div>
         </div>
     `;
 }
 
-async function searchCity() {
-    const input = document.getElementById('cityInput');
-    const city = input.value.trim();
+const cityInput = document.getElementById('cityInput');
+const suggestionsList = document.getElementById('citySuggestions');
 
-    if (!city) return;
+cityInput.addEventListener('input', (e) => {
+    const query = e.target.value.trim();
 
-    const container = document.getElementById('weatherContainer');
-    container.innerHTML = `
-        <div class="flex justify-center items-center py-20"><div class="loading"></div></div>
-    `;
+    clearTimeout(searchTimeout);
 
-    try {
-        const geoResponse = await fetch(
-            `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=pt&format=json`
-        );
-        const geoData = await geoResponse.json();
+    if (query.length < 3) {
+        suggestionsList.classList.add('hidden');
+        return;
+    }
 
-        if (!geoData.results || geoData.results.length === 0) {
-            container.innerHTML = `
-                <div class="text-center py-20"><p class="text-red-500 text-xl">Cidade não encontrada</p></div>
-            `;
-            return;
+    searchTimeout = setTimeout(async () => {
+        try {
+            const response = await fetch(
+                `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=5&language=pt&format=json`
+            );
+            const data = await response.json();
+
+            if (data.results && data.results.length > 0) {
+                renderSuggestions(data.results);
+            } else {
+                suggestionsList.classList.add('hidden');
+            }
+        } catch (error) {
+            console.error("Erro na busca", error);
         }
+    }, 300);
+});
 
-        const location = geoData.results[0];
-        document.querySelectorAll('.gp-item').forEach(item => item.classList.remove('active'));
-        currentGP = null;
-        
-        await fetchWeather(location.latitude, location.longitude, null, location.name);
-
-    } catch (error) {
-        container.innerHTML = `
-            <div class="text-center py-20"><p class="text-red-500 text-xl">Erro ao buscar cidade</p></div>
-        `;
-    } 
+function renderSuggestions(locations) {
+    suggestionsList.innerHTML = locations.map(loc => `
+        <li class="px-4 py-3 hover:bg-red-600 hover:text-white cursor-pointer border-b border-gray-700 last:border-0 transition"
+            onclick="selectCity('${loc.name}', ${loc.latitude}, ${loc.longitude}, '${loc.country || ''}')">
+            <div class="font-bold">${loc.name}</div>
+            <div class="text-xs text-gray-400 font-mono">${loc.admin1 || ''}, ${loc.country || ''}</div>
+        </li>
+    `).join('');
+    
+    suggestionsList.classList.remove('hidden');
 }
 
-document.getElementById('searchBtn').addEventListener('click', searchCity);
-document.getElementById('cityInput').addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') searchCity();
+window.selectCity = async (name, lat, lon, country) => {
+    suggestionsList.classList.add('hidden');
+    cityInput.value = name;
+    
+    document.querySelectorAll('.gp-item').forEach(item => item.classList.remove('active'));
+    currentGP = null;
+
+    const fullName = country ? `${name}, ${country}` : name;
+    await fetchWeather(lat, lon, null, fullName);
+};
+
+document.addEventListener('click', (e) => {
+    if (!cityInput.contains(e.target) && !suggestionsList.contains(e.target)) {
+        suggestionsList.classList.add('hidden');
+    }
 });
 
 renderGPList();

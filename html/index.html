@@ -20,44 +20,46 @@
         </div>
 
         <div class="mb-8">
-            <div class="max-w-2xl mx-auto">
-                <div class="flex gap-2">
-                    <input
-                        type="text"
-                        id="cityInput"
-                        placeholder="Buscar outra cidade..."
-                        class="flex-1 px-6 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-red-600 focus:bg-opacity-15 transition"
+            <div class="max-w-2xl mx-auto relative"> <div class="flex gap-2">
+                <div class="flex-1 relative">
+                    <input 
+                        type="text" 
+                        id="cityInput" 
+                        placeholder="Digite o nome da cidade..."
+                        class="w-full px-6 py-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-red-600 focus:bg-opacity-15 transition" 
+                        autocomplete="off"
                     >
-
-                    <button
-                        id="searchBtn"
-                        class="f1-red px-8 py-4 rounded-lg font-bold
-                        hover:shadow-lg transition transform hover:scale-105"
-                    >
-                        BUSCAR
-                    </button>
+                    
+                    <ul id="citySuggestions" class="absolute w-full bg-gray-900 border border-gray-700 rounded-b-lg shadow-xl z-50 hidden max-h-60 overflow-y-auto mt-1">
+                    </ul>
                 </div>
+
+                <button 
+                    id="searchBtn" 
+                    class="f1-red px-8 py-4 rounded-lg font-bold hover:shadow-lg transition transform hover:scale-105">
+                    BUSCAR
+                </button>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
             <div class="lg:col-span-1">
                 <div class="f1-card rounded-xl p-6">
                     <h2 class="text-2xl font-bold mb-4 text-red-600">
                         CALENDÁRIO 2026
                     </h2>
 
-                    <div id="gpList" class="space-y-2 max-h-[600px] overflow-y-auto"></div>
+                    <div id="gpList" class="space-y-1 max-h-[500px] overflow-y-auto"></div>
                 </div>
             </div>
-        </div>
 
-        <div class="lg:col-span-2">
-            <div id="weatherContainer" class="f1-card rounded-xl p-8">
-                <div class="text-center py-20">
-                    <p class="text-xl text-gray-400">
-                        Selecione um GP ou busque uma cidade
-                    </p>
+            <div class="lg:col-span-2">
+                <div id="weatherContainer" class="f1-card rounded-xl p-8">
+                    <div class="text-center py-20">
+                        <p class="text-xl text-gray-400">
+                            Selecione um GP ou busque uma cidade
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
