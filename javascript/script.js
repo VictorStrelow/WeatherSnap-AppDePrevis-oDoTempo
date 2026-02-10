@@ -1,3 +1,4 @@
+// --- DADOS DOS GPS ---
 const gp2026 = [
     {
         name: "Australian GP",
@@ -68,7 +69,7 @@ const gp2026 = [
         lat: 45.5017,
         lon: -73.5673,
         date: "22-24 May",
-        venue: "Montreal", 
+        venue: "Montreal",
         sprint: true
     },
 
@@ -83,7 +84,7 @@ const gp2026 = [
     },
 
     {
-        name: "Spanish GP", 
+        name: "Spanish GP",
         city: "Barcelona",
         country: "Spain",
         lat: 41.3851,
@@ -136,7 +137,7 @@ const gp2026 = [
     {
         name: "Dutch GP 🏁",
         city: "Zandvoort",
-        country: "Netherlands", 
+        country: "Netherlands",
         lat: 52.3700,
         lon: 4.5300,
         date: "21-23 Aug",
@@ -171,12 +172,12 @@ const gp2026 = [
         lat: 1.3521,
         lon: 103.8198,
         date: "9-11 Oct",
-        venue: "Singapore", 
+        venue: "Singapore",
         sprint: true
     },
 
     {
-        name: "United States GP", 
+        name: "United States GP",
         city: "Austin",
         country: "USA",
         lat: 30.2672,
@@ -209,7 +210,7 @@ const gp2026 = [
         name: "Las Vegas GP",
         city: "Las Vegas",
         country: "USA",
-        lat: 36.1699, 
+        lat: 36.1699,
         lon: -115.1398,
         date: "19-21 Nov",
         venue: "Las Vegas"
@@ -236,20 +237,18 @@ const gp2026 = [
     }
 ];
 
-let currentGP = null;
 let searchTimeout = null;
 
+// --- RENDERIZAR LISTA LATERAL ---
 function renderGPList() {
     const gpList = document.getElementById('gpList');
-
     gpList.innerHTML = gp2026.map((gp, index) => `
         <div class="gp-item p-3 rounded-lg" onclick="selectGP(${index})">
             <div class="flex justify-between items-center">
                 <div class="flex-1">
                     <p class="font-bold">${gp.name}</p>
-                    <p class="text-sm text-gray-400">${gp.venue}</p>
+                    <p class="text-sm text-gray-400">${gp.city}, ${gp.country}</p>
                 </div>
-
                 <div class="text-right">
                     <span class="text-xs text-red-500 font-semibold block">${gp.date}</span>
                     ${gp.sprint ? '<span class="text-xs text-yellow-400">Sprint</span>' : ''}
@@ -260,29 +259,44 @@ function renderGPList() {
 }
 
 async function selectGP(index) {
-    currentGP = gp2026[index];
+    const gp = gp2026[index];
     
     document.getElementById('citySuggestions').classList.add('hidden');
     document.getElementById('cityInput').value = '';
+
     document.querySelectorAll('.gp-item').forEach((item, i) => {
         item.classList.toggle('active', i === index);
     });
 
-    await fetchWeather(currentGP.lat, currentGP.lon, currentGP.name, currentGP.city);
+    const subtitle = `${gp.city}, ${gp.country}`;
+
+    await fetchWeather(gp.lat, gp.lon, gp.name, subtitle, true);
 }
 
-async function fetchWeather(lat, lon, gpName = null, cityName = null) {
-    const container = document.getElementById('weatherContainer');
+window.selectCity = async (name, lat, lon, admin1, country) => {
+    document.getElementById('citySuggestions').classList.add('hidden');
+    
+    document.querySelectorAll('.gp-item').forEach(item => item.classList.remove('active'));
+    
+    const fullLocation = [admin1, country].filter(Boolean).join(', ');
 
+    document.getElementById('cityInput').value = name;
+
+    await fetchWeather(lat, lon, name, fullLocation, false);
+};
+
+
+async function fetchWeather(lat, lon, title, subtitle, isGP) {
+    const container = document.getElementById('weatherContainer');
     container.innerHTML = '<div class="flex justify-center items-center py-20"><div class="loading"></div></div>';
 
     try {
         const response = await fetch(
             `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code,windspeed_10m,relativehumidity_2m,precipitation&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto&forecast_days=4`
         );
-
         const data = await response.json();
-        displayWeather(data, gpName, cityName);
+
+        displayWeather(data, title, subtitle, isGP);
 
     } catch (error) {
         console.error(error);
@@ -290,120 +304,7 @@ async function fetchWeather(lat, lon, gpName = null, cityName = null) {
     }
 }
 
-function getWeatherInfo(code) {
-    const weatherCodes = {
-        0: {
-            desc: 'Céu Limpo',
-            icon: '☀️'
-        },
-
-        1: {
-            desc: 'Principalmente Limpo',
-            icon: '🌤️'
-        },
-
-        2: {
-            desc: 'Parcialmente Nublado',
-            icon: '⛅'
-        },
-
-        3: {
-            desc: 'Nublado',
-            icon: '☁️'
-        },
-
-        45: {
-            desc: 'Neblina',
-            icon: '🌫️'
-        },
-
-        48: {
-            desc: 'Neblina Gelada',
-            icon: '🌫️'
-        },
-
-        51: {
-            desc: 'Garoa Leve',
-            icon: '🌦️'
-        },
-
-        53: {
-            desc: 'Garoa Moderada',
-            icon: '🌧️'
-        },
-
-        55: {
-            desc: 'Garoa Intensa',
-            icon: '🌧️'
-        },
-
-        61: {
-            desc: 'Chuva Leve',
-            icon: '🌧️'
-        },
-
-        63: {
-            desc: 'Chuva Moderada',
-            icon: '🌧️'
-        },
-
-        65: {
-            desc: 'Chuva Forte',
-            icon: '⛈️'
-        },
-
-        80: {
-            desc: 'Pancadas de Chuva',
-            icon: '⛈️'
-        },
-
-        95: {
-            desc: 'Tempestade',
-            icon: '⛈️'
-        }
-    };
-
-    return weatherCodes[code] || { desc: 'Variável', icon: '🌡️' };
-}
-
-function getTireRecommendation(weather_code, temp, precipitation_current, prob_daily) {
-    const chuva = Number(precipitation_current);
-    const code = Number(weather_code);
-    const prob = Number(prob_daily);
-
-    if (code >= 63 || chuva > 1.0) {
-        return { tire: 'WET (Chuva)', color: '#0066ff', reason: 'Pista encharcada', suggestion: '🌧️ Muita água na pista! Risco de aquaplanagem.' };
-
-    } else if ((code >= 51 && code <= 61) || chuva > 0.1 || (prob >= 75 && code > 1)) {
-        return { tire: 'INTERMEDIATE', color: '#00cc00', reason: 'Pista úmida ou risco alto', suggestion: '☔ Asfalto escorregadio. Cuidado nas zebras.' };
-
-    } else {
-        if (temp > 35) {
-            return { tire: 'HARD (Duro)', color: '#ffffff', reason: 'Calor extremo', suggestion: '🔥 Asfalto fervendo! Economize pneus.'};
-
-        } else if (temp < 18) {
-            return { tire: 'SOFT (Macio)', color: '#ff0000', reason: 'Baixa temperatura', suggestion: '❄️ Use pneu macio para aquecer rápido.' };
-
-        } else {
-            return { tire: 'MEDIUM (Médio)', color: '#ffff00', reason: 'Condições ideais', suggestion: '🏎️ Pé embaixo! Condições perfeitas para corrida.' };
-        }
-    }
-}
-
-function applyTheme(weatherCode) {
-    const body = document.body;
-    body.classList.remove('weather-sunny', 'weather-cloudy', 'weather-rainy');
-
-    if (weatherCode <= 1) {
-        body.classList.add('weather-sunny');
-
-    } else if (weatherCode <= 48) {
-        body.classList.add('weather-cloudy');
-
-    } else body.classList.add('weather-rainy');
-}
-
-async function displayWeather(data, gpName = '', cityName = '') {
+async function displayWeather(data, title, subtitle, isGP) {
     const current = data.current;
     const daily = data.daily;
     const container = document.getElementById('weatherContainer');
@@ -416,8 +317,6 @@ async function displayWeather(data, gpName = '', cityName = '') {
     applyTheme(wCode);
 
     const tireRec = getTireRecommendation(wCode, current.temperature_2m, chuvaAgora, probChuvaHoje);
-    const displayName = gpName || cityName || (currentGP ? currentGP.city : 'Local');
-    const isGP = !!gpName; 
 
     let forecastHTML = daily.time.map((time, i) => {
         const date = new Date(time + 'T12:00:00'); 
@@ -437,40 +336,58 @@ async function displayWeather(data, gpName = '', cityName = '') {
         `;
     }).join('');
 
-    let middleCardHTML = isGP ? `
-        <div class="bg-black bg-opacity-30 rounded-xl p-6 mb-8 border border-white border-opacity-10 flex items-center gap-6">
-            <div class="h-24 w-24 rounded-full border-8 shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center justify-center bg-gray-900 shrink-0" style="border-color: ${tireRec.color}">
-                <span class="text-2xl font-black italic text-white text-center leading-none" style="font-size: 1rem;">P ZERO</span>
-            </div>
+    let middleCardHTML = '';
 
-            <div>
-                <h3 class="text-xl font-bold mb-1" style="color: ${tireRec.color}">${tireRec.tire}</h3>
-                <p class="text-sm text-gray-300 mb-1">${tireRec.reason}</p>
-                <p class="text-xs text-gray-400 italic">"${tireRec.suggestion}"</p>
+    if (isGP) {
+        middleCardHTML = `
+            <div class="bg-black bg-opacity-30 rounded-xl p-6 mb-8 border border-white border-opacity-10 flex items-center gap-6">
+                <div class="h-24 w-24 rounded-full border-8 shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center justify-center bg-gray-900 shrink-0" style="border-color: ${tireRec.color}">
+                    <span class="text-2xl font-black italic text-white text-center leading-none" style="font-size: 1rem;">P ZERO</span>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-1" style="color: ${tireRec.color}">${tireRec.tire}</h3>
+                    <p class="text-sm text-gray-300 mb-1">${tireRec.reason}</p>
+                    <p class="text-xs text-gray-400 italic">"${tireRec.suggestion}"</p>
+                </div>
             </div>
-        </div>
-    ` : `
-        <div class="bg-black bg-opacity-30 rounded-xl p-6 mb-8 border border-white border-opacity-10 flex items-center gap-6">
-            <div class="text-5xl">💡</div>
-        
-            <div>
-                <h3 class="text-xl font-bold mb-1 text-white">Dica do Dia</h3>
-                <p class="text-sm text-gray-300">${tireRec.suggestion.replace('Pista', 'Rua').replace('Asfalto', 'Chão').replace('aquaplanagem', 'poças d\'água')}</p>
+        `;
+    } else {
+        middleCardHTML = `
+            <div class="bg-black bg-opacity-30 rounded-xl p-6 mb-8 border border-white border-opacity-10 flex items-center gap-6">
+                 <div class="text-5xl">💡</div>
+                <div>
+                    <h3 class="text-xl font-bold mb-1 text-white">Dica do Dia</h3>
+                    <p class="text-sm text-gray-300">
+                        ${tireRec.suggestion
+                            .replace('Pista', 'Rua')
+                            .replace('Asfalto', 'Chão')
+                            .replace('aquaplanagem', 'poças d\'água')
+                            .replace('Use o macio', 'Use roupas quentes')
+                            .replace('Pé embaixo!', 'Aproveite o dia!')
+                            .replace('para corrida', '')
+                        }
+                    </p>
+                </div>
             </div>
-        </div>
-    `;
+        `;
+    }
 
     container.innerHTML = `
         <div class="animate-fade-in">
             <div class="flex justify-between items-start mb-8">
                 <div>
-                    <h2 class="text-4xl font-black italic tracking-tighter mb-1">${displayName}</h2>
-                    <p class="text-xl text-gray-200 flex items-center gap-2">${weatherInfo.desc}</p>
+                    <h2 class="text-4xl font-black italic tracking-tighter mb-1 leading-tight">
+                        ${title}
+                    </h2>
+                    <p class="text-lg text-gray-300 font-semibold flex items-center gap-2 mb-2">
+                        📍 ${subtitle}
+                    </p>
+                    <p class="text-xl text-gray-200 flex items-center gap-2 italic">
+                        ${weatherInfo.desc}
+                    </p>
                 </div>
-
                 <div class="text-right">
                     <div class="text-6xl font-black tracking-tighter">${Math.round(current.temperature_2m)}°</div>
-
                     <div class="flex justify-end gap-4 text-sm mt-2 font-mono">
                         <span title="Vento">💨 ${Math.round(current.windspeed_10m)} km/h</span>
                         <span title="Umidade">💧 ${current.relativehumidity_2m}%</span>
@@ -478,7 +395,6 @@ async function displayWeather(data, gpName = '', cityName = '') {
                     </div>
                 </div>
             </div>
-
             ${middleCardHTML}
             <h3 class="font-bold mb-4 text-xl border-b border-white border-opacity-10 pb-2">PRÓXIMOS DIAS</h3>
             <div class="grid grid-cols-4 gap-4">${forecastHTML}</div>
@@ -486,12 +402,48 @@ async function displayWeather(data, gpName = '', cityName = '') {
     `;
 }
 
+function getWeatherInfo(code) {
+    const weatherCodes = {
+        0: { desc: 'Céu Limpo', icon: '☀️' }, 1: { desc: 'Principalmente Limpo', icon: '🌤️' },
+        2: { desc: 'Parcialmente Nublado', icon: '⛅' }, 3: { desc: 'Nublado', icon: '☁️' },
+        45: { desc: 'Neblina', icon: '🌫️' }, 48: { desc: 'Neblina Gelada', icon: '🌫️' },
+        51: { desc: 'Garoa Leve', icon: '🌦️' }, 53: { desc: 'Garoa Moderada', icon: '🌧️' },
+        55: { desc: 'Garoa Intensa', icon: '🌧️' }, 61: { desc: 'Chuva Leve', icon: '🌧️' },
+        63: { desc: 'Chuva Moderada', icon: '🌧️' }, 65: { desc: 'Chuva Forte', icon: '⛈️' },
+        80: { desc: 'Pancadas de Chuva', icon: '⛈️' }, 95: { desc: 'Tempestade', icon: '⛈️' }
+    };
+    return weatherCodes[code] || { desc: 'Variável', icon: '🌡️' };
+}
+
+function getTireRecommendation(weather_code, temp, precipitation_current, prob_daily) {
+    const chuva = Number(precipitation_current);
+    const code = Number(weather_code);
+    const prob = Number(prob_daily);
+
+    if (code >= 63 || chuva > 1.0) {
+        return { tire: 'WET (Chuva)', color: '#0066ff', reason: 'Pista encharcada', suggestion: '🌧️ Muita água na pista! Risco de aquaplanagem.' };
+    } else if ((code >= 51 && code <= 61) || chuva > 0.1 || (prob >= 75 && code > 1)) {
+        return { tire: 'INTERMEDIATE', color: '#00cc00', reason: 'Pista úmida ou risco alto', suggestion: '☔ Asfalto escorregadio. Cuidado nas zebras.' };
+    } else {
+        if (temp > 35) return { tire: 'HARD (Duro)', color: '#ffffff', reason: 'Calor extremo', suggestion: '🔥 Asfalto fervendo! Economize pneus.' };
+        else if (temp < 18) return { tire: 'SOFT (Macio)', color: '#ff0000', reason: 'Baixa temperatura', suggestion: '❄️ Use o macio para aquecer rápido.' };
+        else return { tire: 'MEDIUM (Médio)', color: '#ffff00', reason: 'Condições ideais', suggestion: '🏎️ Pé embaixo! Condições perfeitas para corrida.' };
+    }
+}
+
+function applyTheme(weatherCode) {
+    const body = document.body;
+    body.classList.remove('weather-sunny', 'weather-cloudy', 'weather-rainy');
+    if (weatherCode <= 1) body.classList.add('weather-sunny');
+    else if (weatherCode <= 48) body.classList.add('weather-cloudy');
+    else body.classList.add('weather-rainy');
+}
+
 const cityInput = document.getElementById('cityInput');
 const suggestionsList = document.getElementById('citySuggestions');
 
 cityInput.addEventListener('input', (e) => {
     const query = e.target.value.trim();
-
     clearTimeout(searchTimeout);
 
     if (query.length < 3) {
@@ -518,27 +470,22 @@ cityInput.addEventListener('input', (e) => {
 });
 
 function renderSuggestions(locations) {
-    suggestionsList.innerHTML = locations.map(loc => `
-        <li class="px-4 py-3 hover:bg-red-600 hover:text-white cursor-pointer border-b border-gray-700 last:border-0 transition"
-            onclick="selectCity('${loc.name}', ${loc.latitude}, ${loc.longitude}, '${loc.country || ''}')">
+    suggestionsList.innerHTML = locations.map(loc => {
+        const locationDetails = [loc.admin1, loc.country].filter(Boolean).join(', ');
+
+        return `
+        <li class="px-4 py-3 hover:bg-red-600 hover:text-white cursor-pointer border-b border-gray-700 last:border-0 transition group"
+            onclick="selectCity('${loc.name}', ${loc.latitude}, ${loc.longitude}, '${loc.admin1 || ''}', '${loc.country || ''}')">
+            
             <div class="font-bold">${loc.name}</div>
-            <div class="text-xs text-gray-400 font-mono">${loc.admin1 || ''}, ${loc.country || ''}</div>
+            <div class="text-xs text-gray-400 font-mono group-hover:text-white">
+                ${locationDetails}
+            </div>
         </li>
-    `).join('');
+    `}).join('');
     
     suggestionsList.classList.remove('hidden');
 }
-
-window.selectCity = async (name, lat, lon, country) => {
-    suggestionsList.classList.add('hidden');
-    cityInput.value = name;
-    
-    document.querySelectorAll('.gp-item').forEach(item => item.classList.remove('active'));
-    currentGP = null;
-
-    const fullName = country ? `${name}, ${country}` : name;
-    await fetchWeather(lat, lon, null, fullName);
-};
 
 document.addEventListener('click', (e) => {
     if (!cityInput.contains(e.target) && !suggestionsList.contains(e.target)) {
